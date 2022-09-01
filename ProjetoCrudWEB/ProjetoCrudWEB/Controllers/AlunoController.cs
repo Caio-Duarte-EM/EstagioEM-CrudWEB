@@ -46,7 +46,7 @@ public class AlunoController : Controller
         }
         else
         {
-            cpfFinal = (Cpf)cpf;
+            cpfFinal = (Cpf)(cpf.Replace(".",string.Empty).Replace("-",string.Empty));
         }
         Aluno novoAluno = new(matricula, nome, sexo, nascimento, cpfFinal);
         if (Utilidades.DadosSaoValidos(novoAluno, repositorio, 0))

@@ -4,7 +4,7 @@ namespace ProjetoCrudWEB.Models;
 
 public class Aluno : IEntidade
 {
-    [Range(1, 999999999, ErrorMessage = "Matrícula só pode ter 9 digitos e não pode ser 0.")]
+    [Range(1, 999999999, ErrorMessage = "Matrícula só pode ter 9 digitos e não pode ser igual ou menor que 0.")]
     [Required(ErrorMessage = "Matrícula não pode ser vazio.")]
     public int Matricula { get; set; }
 
