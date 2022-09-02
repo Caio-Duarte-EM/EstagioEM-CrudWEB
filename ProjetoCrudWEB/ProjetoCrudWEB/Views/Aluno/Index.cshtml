@@ -12,12 +12,11 @@
     <a class="float-end btn btn-success" asp-action="Adicionar">Adicionar Aluno</a>
     <hr />
 
-    <form asp-controller="Aluno" asp-action="Index" method="get">
-    <p>
-        <input size="50" type="text" placeholder="Matrícula ou nome do aluno..." asp-for="StringPesquisa"/>
-        <input type="submit" value="Buscar" class=" btn btn-sm btn-success position-absolute border-start-0" />
-    </p>
-</form>
+    <form asp-controller="Aluno" asp-action="Index" method="get" class="input-group">
+        <input class="form-control" type="text" placeholder="Matrícula ou nome do aluno..." asp-for="StringPesquisa" />
+        <input type="submit" value="Buscar" class=" btn btn-success" />
+    </form>
+    <br />
 </div>
 
 <div class="table-responsive">
