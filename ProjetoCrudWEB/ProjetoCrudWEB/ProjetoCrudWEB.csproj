@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FirebirdSql.Data.FirebirdClient" Version="9.0.2" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
   </ItemGroup>
 
 </Project>

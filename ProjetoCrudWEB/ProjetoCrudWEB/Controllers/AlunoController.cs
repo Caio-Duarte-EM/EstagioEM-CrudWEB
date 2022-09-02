@@ -49,12 +49,21 @@ public class AlunoController : Controller
             cpfFinal = (Cpf)(cpf.Replace(".",string.Empty).Replace("-",string.Empty));
         }
         Aluno novoAluno = new(matricula, nome, sexo, nascimento, cpfFinal);
-        if (Utilidades.DadosSaoValidos(novoAluno, repositorio, 0))
+        try
+        {
+            if (Utilidades.DadosSaoValidos(novoAluno, repositorio, 0))
+            {
+            }
+        }
+        catch (RegrasException ex)
+        {
+            ex.CopiarErrosPara(ModelState);
+        }
+        if (ModelState.IsValid)
         {
             repositorio.Add(novoAluno);
             return RedirectToAction(nameof(Index));
         }
-
         return View(novoAluno);
     }
 
@@ -78,12 +87,21 @@ public class AlunoController : Controller
             cpfFinal = (Cpf)(cpf.Replace(".",string.Empty).Replace("-",string.Empty));
         }
         Aluno alunoEditado = new(matricula, nome, sexo, nascimento, cpfFinal);
-        if (Utilidades.DadosSaoValidos(alunoEditado, repositorio, id))
+        try
+        {
+            if (Utilidades.DadosSaoValidos(alunoEditado, repositorio, id))
+            {
+            }
+        }
+        catch (RegrasException ex)
+        {
+            ex.CopiarErrosPara(ModelState);
+        }
+        if (ModelState.IsValid)
         {
             repositorio.Update(alunoEditado);
             return RedirectToAction(nameof(Index));
         }
-
         return View(alunoEditado);
     } 
 
