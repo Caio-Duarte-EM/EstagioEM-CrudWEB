@@ -53,16 +53,13 @@ public class AlunoController : Controller
         {
             if (Utilidades.DadosSaoValidos(novoAluno, repositorio, 0))
             {
+                repositorio.Add(novoAluno);
+                return RedirectToAction(nameof(Index));
             }
         }
         catch (RegrasException ex)
         {
             ex.CopiarErrosPara(ModelState);
-        }
-        if (ModelState.IsValid)
-        {
-            repositorio.Add(novoAluno);
-            return RedirectToAction(nameof(Index));
         }
         return View(novoAluno);
     }
@@ -91,16 +88,13 @@ public class AlunoController : Controller
         {
             if (Utilidades.DadosSaoValidos(alunoEditado, repositorio, id))
             {
+                repositorio.Update(alunoEditado);
+                return RedirectToAction(nameof(Index));
             }
         }
         catch (RegrasException ex)
         {
             ex.CopiarErrosPara(ModelState);
-        }
-        if (ModelState.IsValid)
-        {
-            repositorio.Update(alunoEditado);
-            return RedirectToAction(nameof(Index));
         }
         return View(alunoEditado);
     } 

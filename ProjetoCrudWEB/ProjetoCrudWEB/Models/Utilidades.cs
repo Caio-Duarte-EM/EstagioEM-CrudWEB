@@ -82,8 +82,8 @@ public abstract class Utilidades
     public static bool DadosSaoValidos(Aluno aluno, RepositorioAluno repositorio, int id)
     {
         var regrasException = new RegrasException<Aluno>();
-        int matricula = aluno.Matricula;
 
+        int matricula = aluno.Matricula;
         if (id != matricula)
         {
             foreach (var alunoTeste in repositorio.GetAll())
@@ -96,14 +96,12 @@ public abstract class Utilidades
             }
         }
 
+        DateTime dataAtual = DateTime.Now;
+        var DataDeNascimento = aluno.Nascimento;
+        if (DataDeNascimento.Year < 1900 || DataDeNascimento > dataAtual)
         {
-            DateTime dataAtual = DateTime.Now;
-            var DataDeNascimento = aluno.Nascimento;
-            if (DataDeNascimento.Year < 1900 || DataDeNascimento > dataAtual)
-            {
-                regrasException.AdicionarErroPara(x => x.Nascimento, "Essa data não é válida");
-                throw regrasException;
-            }
+            regrasException.AdicionarErroPara(x => x.Nascimento, "Essa data não é válida");
+            throw regrasException;
         }
 
         string CpfTeste = aluno.Cpf.Replace(".",string.Empty).Replace("-",string.Empty);
