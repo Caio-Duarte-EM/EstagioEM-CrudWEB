@@ -94,6 +94,10 @@ public class AlunoController : Controller
         }
         catch (RegrasException ex)
         {
+            if(alunoEditado.Cpf == "invalido")
+            {
+                alunoEditado.Cpf = "";
+            }
             ex.CopiarErrosPara(ModelState);
         }
         return View(alunoEditado);

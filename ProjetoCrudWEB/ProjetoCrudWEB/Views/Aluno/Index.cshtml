@@ -29,7 +29,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Alunos[0].Nome)
                 </th>
-                <th class="th-lg">
+                <th >
                     @Html.DisplayNameFor(model => model.Alunos[0].Sexo)
                 </th>
                 <th>
@@ -38,7 +38,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Alunos[0].Cpf)
                 </th>
-                <th style="width: 200px">
+                <th>
                     Opções
                 </th>
             </tr>
@@ -50,7 +50,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Matricula)
                     </td>
-                    <td class="text-start" style="white-space: nowrap">
+                    <td class="text-start text-nowrap">
                         @Html.DisplayFor(modelItem => item.Nome)
                     </td>
                     <td>
@@ -62,8 +62,8 @@
                     <td style="white-space: nowrap">
                         @Html.DisplayFor(modelItem => item.Cpf)
                     </td>
-                    <td class="d-grid gap-2 d-xl-block">
-                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@item.Matricula">&#9999 Editar</a>
+                    <td class="d-grid gap-2 d-xl-block text-nowrap">
+                        <a class="btn btn-sm btn-outline-secondary " asp-action="Editar" asp-route-id="@item.Matricula">&#9999 Editar</a>
                         <a class="btn btn-sm btn-outline-danger" asp-action="Remover" asp-route-id="@item.Matricula">&#x1F5D1 Remover</a>
                     </td>
                 </tr>

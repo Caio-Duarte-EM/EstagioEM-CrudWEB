@@ -17,7 +17,7 @@ public class Aluno : IEntidade
     public EnumeradorSexo Sexo { get; set; }
 
     [Display(Name = "Data de Nascimento")]
-    [DataType(DataType.Date, ErrorMessage = "Selecione uma data válida")]
+    [DataType(DataType.Date, ErrorMessage = "Selecione uma data válida.")]
     [Required(ErrorMessage = "Data de nascimento não pode ser vazio.")]
     public DateTime Nascimento { get; set; }
 

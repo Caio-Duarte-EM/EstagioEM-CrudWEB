@@ -90,7 +90,7 @@ public abstract class Utilidades
             {
                 if (alunoTeste.Matricula == matricula)
                 {
-                    regrasException.AdicionarErroPara(x => x.Matricula, "Já existe um aluno com essa matrícula");
+                    regrasException.AdicionarErroPara(x => x.Matricula, "Já existe um aluno com essa matrícula.");
                     throw regrasException;
                 }
             }
@@ -100,7 +100,7 @@ public abstract class Utilidades
         var DataDeNascimento = aluno.Nascimento;
         if (DataDeNascimento.Year < 1900 || DataDeNascimento > dataAtual)
         {
-            regrasException.AdicionarErroPara(x => x.Nascimento, "Essa data não é válida");
+            regrasException.AdicionarErroPara(x => x.Nascimento, "Essa data não é válida.");
             throw regrasException;
         }
 
@@ -109,9 +109,9 @@ public abstract class Utilidades
         {
             return true;
         }
-        else if ((Cpf)CpfTeste == "inválido")
+        else if ((Cpf)CpfTeste == "invalido")
         {
-            regrasException.AdicionarErroPara(x => x.Cpf, "Esse CPF não é válido");
+            regrasException.AdicionarErroPara(x => x.Cpf, "Esse CPF não é válido.");
             throw regrasException;
         }
         else
@@ -120,7 +120,7 @@ public abstract class Utilidades
             {
                 if (alunoTeste.Cpf == aluno.Cpf && alunoTeste.Matricula != matricula)
                 {
-                    regrasException.AdicionarErroPara(x => x.Cpf, "Já existe um aluno com esse CPF");
+                    regrasException.AdicionarErroPara(x => x.Cpf, "Já existe um aluno com esse CPF.");
                     throw regrasException;
                 }
             }
