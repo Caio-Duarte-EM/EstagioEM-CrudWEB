@@ -34,4 +34,27 @@ public class Aluno : IEntidade
         Cpf = cpf;
     }
 
+    public override bool Equals(object? obj)
+    {
+        return obj is Aluno aluno &&
+               Matricula == aluno.Matricula &&
+               Nome == aluno.Nome &&
+               Cpf == aluno.Cpf &&
+               Nascimento == aluno.Nascimento &&
+               Sexo == aluno.Sexo;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Matricula, Nome, Cpf, Nascimento, Sexo);
+    }
+
+    public override string ToString()
+    {
+        return $"Matrícula: {Matricula}" +
+               $"Nome: {Nome}" +
+               $"Sexo: {Sexo}" +
+               $"Data de Nascimento: {Nascimento}" +
+               $"Cpf: {Cpf}";
+    }
 }
