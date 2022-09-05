@@ -40,11 +40,11 @@
                 <label asp-for="Cpf" class="control-label"></label>
                 <input class="form-control" type="text" data-val="true" data-val-length="Cpf não pode ter mais de 14 caracteres." data-val-length-max="14"
                        data-val-regex="Cpf só pode conter letras, '.' ou '-'." data-val-regex-pattern="^[0-9\.-]*$" id="Cpf" maxlength="14" name="Cpf" value="@Html.DisplayFor(aluno => aluno.Cpf)">
-                <span class="text-danger"></span>
+                <span asp-validation-for="Cpf" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Editar" class="btn btn-success" />
+                <input type="submit" value="&#x1F4C3 Salvar" class="btn btn-success" />
             </div>
         </form>
     </div>
@@ -52,7 +52,7 @@
 
 <div>
     <br />
-    <a class="btn btn-sm btn-secondary" asp-action="Index">Voltar para tabela</a>
+    <a class="btn btn-sm btn-secondary" asp-action="Index">&#x21A9 Voltar para tabela</a>
 </div>
 
 @section Scripts {

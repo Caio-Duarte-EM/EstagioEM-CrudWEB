@@ -14,7 +14,7 @@
 
     <form asp-controller="Aluno" asp-action="Index" method="get" class="input-group">
         <input class="form-control" type="text" placeholder="Matrícula ou nome do aluno..." asp-for="StringPesquisa" />
-        <input type="submit" value="Buscar" class=" btn btn-success" />
+        <input type="submit" value="&#x1F50E Buscar" class=" btn btn-success" />
     </form>
     <br />
 </div>
@@ -38,7 +38,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Alunos[0].Cpf)
                 </th>
-                <th style="width: 180px">
+                <th style="width: 200px">
                     Opções
                 </th>
             </tr>
@@ -63,8 +63,8 @@
                         @Html.DisplayFor(modelItem => item.Cpf)
                     </td>
                     <td class="d-grid gap-2 d-xl-block">
-                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@item.Matricula">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Remover" asp-route-id="@item.Matricula">Remover</a>
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@item.Matricula">&#9999 Editar</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Remover" asp-route-id="@item.Matricula">&#x1F5D1 Remover</a>
                     </td>
                 </tr>
             }
