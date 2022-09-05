@@ -33,4 +33,5 @@ public class Aluno : IEntidade
         Nascimento = nascimento;
         Cpf = cpf;
     }
+
 }
