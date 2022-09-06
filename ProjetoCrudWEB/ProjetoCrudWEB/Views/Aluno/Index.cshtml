@@ -4,6 +4,7 @@
     ViewData["Title"] = "Tabela de Alunos";
 }
 
+
 <div>
     <br />
     <h1 style="display: inline">
@@ -22,7 +23,7 @@
 <div class="table-responsive">
     <table class="table table-striped table-bordered align-middle">
         <thead>
-            <tr class="bg-success text-white text-center w-auto">
+            <tr class="bg-success text-white text-center w-auto text-nowrap">
                 <th>
                     @Html.DisplayNameFor(model => model.Alunos[0].Matricula)
                 </th>
@@ -38,7 +39,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Alunos[0].Cpf)
                 </th>
-                <th>
+                <th width="200px">
                     Opções
                 </th>
             </tr>

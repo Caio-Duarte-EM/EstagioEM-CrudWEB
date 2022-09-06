@@ -104,7 +104,7 @@ public abstract class Utilidades
             throw regrasException;
         }
 
-        string CpfTeste = aluno.Cpf.Replace(".",string.Empty).Replace("-",string.Empty);
+        string CpfTeste = aluno.Cpf.Replace(".", string.Empty).Replace("-", string.Empty);
         if (aluno.Cpf == string.Empty)
         {
             return true;

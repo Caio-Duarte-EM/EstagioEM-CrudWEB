@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetoCrudWEB.Models;
-using System.Threading.Tasks;
 
 namespace ProjetoCrudWEB.Controllers;
 public class AlunoController : Controller
@@ -40,18 +39,18 @@ public class AlunoController : Controller
     public IActionResult Adicionar(int matricula, string nome, EnumeradorSexo sexo, DateTime nascimento, string cpf)
     {
         string cpfFinal;
-        if(cpf is null)
+        if (cpf is null)
         {
             cpfFinal = "";
         }
         else
         {
-            cpfFinal = (Cpf)(cpf.Replace(".",string.Empty).Replace("-",string.Empty));
+            cpfFinal = (Cpf)(cpf.Replace(".", string.Empty).Replace("-", string.Empty));
         }
         Aluno novoAluno = new(matricula, nome, sexo, nascimento, cpfFinal);
         try
         {
-            if (Utilidades.DadosSaoValidos(novoAluno, repositorio, 0))
+            if (Utilidades.DadosSaoValidos(novoAluno, repositorio, -1))
             {
                 repositorio.Add(novoAluno);
                 return RedirectToAction(nameof(Index));
@@ -68,7 +67,7 @@ public class AlunoController : Controller
     {
         var aluno = repositorio.GetByMatricula(id);
         return View(aluno);
-    } 
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -81,7 +80,7 @@ public class AlunoController : Controller
         }
         else
         {
-            cpfFinal = (Cpf)(cpf.Replace(".",string.Empty).Replace("-",string.Empty));
+            cpfFinal = (Cpf)(cpf.Replace(".", string.Empty).Replace("-", string.Empty));
         }
         Aluno alunoEditado = new(matricula, nome, sexo, nascimento, cpfFinal);
         try
@@ -94,14 +93,14 @@ public class AlunoController : Controller
         }
         catch (RegrasException ex)
         {
-            if(alunoEditado.Cpf == "invalido")
+            if (alunoEditado.Cpf == "invalido")
             {
                 alunoEditado.Cpf = "";
             }
             ex.CopiarErrosPara(ModelState);
         }
         return View(alunoEditado);
-    } 
+    }
 
     public IActionResult Remover(int id)
     {

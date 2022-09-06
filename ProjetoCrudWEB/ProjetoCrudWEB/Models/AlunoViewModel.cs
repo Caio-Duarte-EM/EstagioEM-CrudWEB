@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace ProjetoCrudWEB.Models;
+﻿namespace ProjetoCrudWEB.Models;
 
 public class AlunoViewModel
 {
