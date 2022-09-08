@@ -4,7 +4,7 @@
     ViewData["Title"] = "Adicionar";
 }
 
-<h1>Adicionar</h1>
+<h1 class ="mt-5 pt-4">Adicionar</h1>
 
 <h4>Aluno</h4>
 <hr />
@@ -12,17 +12,17 @@
     <div class="col-md-4">
         <form asp-action="Adicionar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group pb-1">
                 <label asp-for="Matricula" class="control-label"></label>
                 <input asp-for="Matricula" class="form-control" />
                 <span asp-validation-for="Matricula" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <label asp-for="Sexo" class="control-label"></label>
                 <br />
                 <select asp-for="Sexo" class="form-select" asp-items="Html.GetEnumSelectList<EnumeradorSexo>()">
@@ -30,12 +30,12 @@
                 </select>
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group py-1">
                 <label asp-for="Nascimento" class="control-label"></label>
                 <input asp-for="Nascimento" class="form-control" />
                 <span asp-validation-for="Nascimento" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group pt-1">
                 <label asp-for="Cpf" class="control-label"></label>
                 <input class="form-control" type="text" data-val="true" data-val-length="Cpf não pode ter mais de 14 caracteres." data-val-length-max="14"
                        data-val-regex="Cpf só pode conter letras, '.' ou '-'." data-val-regex-pattern="^[0-9\.-]*$" id="Cpf" maxlength="14" name="Cpf" value="">
@@ -58,4 +58,4 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    }
+}

@@ -4,10 +4,8 @@
     ViewData["Title"] = "Tabela de Alunos";
 }
 
-
-<div>
-    <br />
-    <h1 style="display: inline">
+<div class="mt-5 pt-5">
+    <h1 class="pt-5" style="display: inline">
         Tabela de Alunos
     </h1>
     <a class="float-end btn btn-success" asp-action="Adicionar">Adicionar Aluno</a>
@@ -21,51 +19,51 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-striped table-bordered align-middle">
+    <table class="table table-striped table-bordered align-middle text-center">
         <thead>
-            <tr class="bg-success text-white text-center w-auto text-nowrap">
+            <tr class="bg-success text-white w-auto text-nowrap">
                 <th>
-                    @Html.DisplayNameFor(model => model.Alunos[0].Matricula)
+                    @Html.DisplayNameFor(model => model.Alunos[0].Matricula).Replace("*", string.Empty)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Alunos[0].Nome)
+                    @Html.DisplayNameFor(model => model.Alunos[0].Nome).Replace("*", string.Empty)
                 </th>
                 <th >
-                    @Html.DisplayNameFor(model => model.Alunos[0].Sexo)
+                    @Html.DisplayNameFor(model => model.Alunos[0].Sexo).Replace("*", string.Empty)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Alunos[0].Nascimento)
+                    @Html.DisplayNameFor(model => model.Alunos[0].Nascimento).Replace("*", string.Empty)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Alunos[0].Cpf)
+                    @Html.DisplayNameFor(model => model.Alunos[0].Cpf).Replace("(Opcional)", string.Empty)
                 </th>
-                <th width="200px">
+                <th>
                     Opções
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Alunos)
+            @foreach (var aluno in Model.Alunos)
             {
-                <tr class="text-center">
+                <tr class="text-nowrap">
                     <td>
-                        @Html.DisplayFor(modelItem => item.Matricula)
+                        @Html.DisplayFor(modelItem => aluno.Matricula)
                     </td>
-                    <td class="text-start text-nowrap">
-                        @Html.DisplayFor(modelItem => item.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Sexo)
+                    <td class="text-start">
+                        @Html.DisplayFor(modelItem => aluno.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nascimento)
+                        @Html.DisplayFor(modelItem => aluno.Sexo)
                     </td>
-                    <td style="white-space: nowrap">
-                        @Html.DisplayFor(modelItem => item.Cpf)
+                    <td>
+                        @Html.DisplayFor(modelItem => aluno.Nascimento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => aluno.Cpf)
                     </td>
                     <td class="d-grid gap-2 d-xl-block text-nowrap">
-                        <a class="btn btn-sm btn-outline-secondary " asp-action="Editar" asp-route-id="@item.Matricula">&#9999 Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-action="Remover" asp-route-id="@item.Matricula">&#x1F5D1 Remover</a>
+                        <a class="btn btn-sm btn-outline-secondary " asp-action="Editar" asp-route-id="@aluno.Matricula">&#9999 Editar</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Remover" asp-route-id="@aluno.Matricula">&#x1F5D1 Remover</a>
                     </td>
                 </tr>
             }

@@ -79,7 +79,7 @@ public abstract class Utilidades
         return Convert.ToUInt64(cpf).ToString(@"000\.000\.000\-00");
     }
 
-    public static bool DadosSaoValidos(Aluno aluno, RepositorioAluno repositorio, int id)
+    public static bool DadosSaoValidos(Aluno aluno, RepositorioAluno repositorio, int id = -1)
     {
         var regrasException = new RegrasException<Aluno>();
 

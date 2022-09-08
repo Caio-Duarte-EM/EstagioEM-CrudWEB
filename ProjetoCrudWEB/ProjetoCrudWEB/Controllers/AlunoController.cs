@@ -36,7 +36,7 @@ public class AlunoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Adicionar(int matricula, string nome, EnumeradorSexo sexo, DateTime nascimento, string cpf)
+    public IActionResult Adicionar(int matricula, string nome, EnumeradorSexo sexo, DateTime nascimento, string? cpf)
     {
         string cpfFinal;
         if (cpf is null)
@@ -45,12 +45,12 @@ public class AlunoController : Controller
         }
         else
         {
-            cpfFinal = (Cpf)(cpf.Replace(".", string.Empty).Replace("-", string.Empty));
+            cpfFinal = (Cpf)cpf.Replace(".", string.Empty).Replace("-", string.Empty);
         }
         Aluno novoAluno = new(matricula, nome, sexo, nascimento, cpfFinal);
         try
         {
-            if (Utilidades.DadosSaoValidos(novoAluno, repositorio, -1))
+            if (Utilidades.DadosSaoValidos(novoAluno, repositorio))
             {
                 repositorio.Add(novoAluno);
                 return RedirectToAction(nameof(Index));
@@ -71,7 +71,7 @@ public class AlunoController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Editar(int matricula, string nome, EnumeradorSexo sexo, DateTime nascimento, string cpf, int id)
+    public IActionResult Editar(int matricula, string nome, EnumeradorSexo sexo, DateTime nascimento, string? cpf, int id)
     {
         string cpfFinal;
         if (cpf is null)
@@ -80,7 +80,7 @@ public class AlunoController : Controller
         }
         else
         {
-            cpfFinal = (Cpf)(cpf.Replace(".", string.Empty).Replace("-", string.Empty));
+            cpfFinal = (Cpf)cpf.Replace(".", string.Empty).Replace("-", string.Empty);
         }
         Aluno alunoEditado = new(matricula, nome, sexo, nascimento, cpfFinal);
         try
