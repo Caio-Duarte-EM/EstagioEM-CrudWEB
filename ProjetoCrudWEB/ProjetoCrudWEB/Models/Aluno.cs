@@ -25,7 +25,7 @@ public class Aluno : IEntidade
     public DateTime Nascimento { get; set; }
 
     [Display(Name = "CPF (Opcional)")]
-    [RegularExpression(@"^[0-9\.-]*$", ErrorMessage = "Cpf só pode conter letras, '.' ou '-'.")]
+    [RegularExpression(@"^[0-9\.-]*$", ErrorMessage = "Cpf só pode conter números, '.' ou '-'.")]
     [StringLength(14, ErrorMessage = "Cpf não pode ter mais de 14 caracteres.")]
     public string Cpf { get; set; }
 
