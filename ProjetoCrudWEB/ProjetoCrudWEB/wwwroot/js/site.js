@@ -6,7 +6,7 @@
 function somenteNumeros(e) {
     var charCode = e.charCode ? e.charCode : e.keyCode;
     if (charCode != 8 && charCode != 9 && charCode != 13) {
-        if ((charCode < 48 || charCode > 57)) {
+        if ((charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105)) {
             return false;
         }
     }
