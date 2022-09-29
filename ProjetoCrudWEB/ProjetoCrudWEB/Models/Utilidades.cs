@@ -100,7 +100,7 @@ public abstract class Utilidades
         var DataDeNascimento = aluno.Nascimento;
         if (DataDeNascimento.Year < 1900 || DataDeNascimento > dataAtual)
         {
-            regrasException.AdicionarErroPara(x => x.Nascimento, "Essa data não é válida.");
+            regrasException.AdicionarErroPara(x => x.Nascimento, "Insira uma data entre 01/01/1900 e a data de hoje.");
             throw regrasException;
         }
 
